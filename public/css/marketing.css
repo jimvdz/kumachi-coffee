@@ -1,0 +1,12 @@
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    border: 5px solid var(--secondary-color);
+    border-radius: 20px;
+}

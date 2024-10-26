@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kumachi Coffee and Pastries | Contact</title>
-    <link rel="stylesheet" href="assets/css/global.css">
-    <link rel="stylesheet" href="assets/css/contact.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 </head>
 <body>
     <header id="header">
         <div class="header__logo Logo">
-            <a href="homepage.html"><img src="assets/images/Logo.webp" alt="Kumachi Logo" class="kumachi__logo"></a>
+            <a href="/"><img src="/images/Logo.webp" alt="Kumachi Logo" class="kumachi__logo"></a>
         </div>
         <nav class="nav__desktop">
             <ul>
-                <li><a href="homepage.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="featured.html">Featured</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/featured">Featured</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
         <div class="header__right">
-            <a href="products.html#products__section"><button class="header__button">Get a coffee</button></a>
+            <a href="/products#products__section"><button class="header__button">Get a coffee</button></a>
             <div class="cart-header">
-                <img src="assets/images/icons/shopping-cart.webp" alt="Cart Icon" class="cart-icon"> 
+                <img src="/images/icons/shopping-cart.webp" alt="Cart Icon" class="cart-icon"> 
                 <p class="cart-count"></p>
             </div>
         </div>
@@ -33,19 +33,19 @@
     <header class="header__mobile">
         <div class="header__mobile__container">
             <button class="nav__menu__mobile">
-                <img src="assets/images/icons/hamburger.webp" alt="hamburger-menu">  
+                <img src="/images/icons/hamburger.webp" alt="hamburger-menu">  
             </button>
             <div class="cart-header">
-                <img src="assets/images/icons/shopping-cart.webp" alt="Cart Icon" class="cart-icon">  
+                <img src="/images/icons/shopping-cart.webp" alt="Cart Icon" class="cart-icon">  
                 <p class="cart-count"></p>
             </div>
         </div>
         <nav id="header__mobile__nav" class="header__mobile__nav">
             <ul>
-                <li><a href="homepage.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="featured.html">Featured</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/featured">Featured</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -84,15 +84,15 @@
                         <h4 class="contact__heading">Reach Us</h4>
                         <p class="medium-size">Contact us through mobile and our social media accounts. Get engaged with our coffee community.</p>
                         <div class="contact__detail">
-                            <a href="tel:09971467790" target="_blank"><img src="assets/images/icons/phone.webp" alt="Phone Icon" class=""></a>
+                            <a href="tel:09971467790" target="_blank"><img src="/images/icons/phone.webp" alt="Phone Icon" class=""></a>
                             <a href="tel:09971467790" target="_blank" class="contact__link medium-size">0997 146 7790</a>
                         </div>
                         <div class="contact__detail">
-                            <a href="https://www.facebook.com/profile.php?id=61560583146776" target="_blank"><img src="assets/images/icons/facebook.webp" alt="Facebook Logo" class=""></a>
+                            <a href="https://www.facebook.com/profile.php?id=61560583146776" target="_blank"><img src="/images/icons/facebook.webp" alt="Facebook Logo" class=""></a>
                             <a href="https://www.facebook.com/profile.php?id=61560583146776" target="_blank" class="contact__link medium-size">Kumachi くまち</a>
                         </div>
                         <div class="contact__detail">
-                            <a href="https://www.instagram.com/kumachi_coffee.ph/" target="_blank"><img src="assets/images/icons/instagram.webp" alt="Instagram Logo" class=""></a>
+                            <a href="https://www.instagram.com/kumachi_coffee.ph/" target="_blank"><img src="/images/icons/instagram.webp" alt="Instagram Logo" class=""></a>
                             <a href="https://www.instagram.com/kumachi_coffee.ph/" target="_blank" class="contact__link medium-size">kumachi_coffee.ph</a>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                     <div class="contact__right__content medium-size">
                         <h4 class="contact__right__heading">Send a Message</h4>
                         <p>Have questions or feedback? We're here to help you enjoy every moment with us.</p>
-                        <form class="medium-size">
+                        <form method="post" action="/api/contact/msg/new" class="medium-size">
                             <label for="name" class="contact__input__label line__height">Name:</label><input type="text" name="name" id="name" class="contact__input">
 
                             <label for="email" class="contact__input__label line__height">Email Address:</label><input type="email" name="email" id="email" class="contact__input">
@@ -124,9 +124,9 @@
         <section class="cta__container">
             <div class="cta__section pad-top-5">
                 <h3 class="text__center">Elevate Your Coffee Journey with the<span><br></span> Ultimate Experience Today!</h3>
-                <img src="assets/images/Logo-Bear-Icon.webp" alt="Kumachi Logo" class="bear__icon">
+                <img src="/images/Logo-Bear-Icon.webp" alt="Kumachi Logo" class="bear__icon">
                 <p class="cta__p text__center">Immerse yourself in a warm and welcoming atmosphere where every cup<span><br></span>is brewed to perfection using only the finest ingredients.</p>
-                <a href="products.html#products__section"><button class="button__colored">Grab a Coffee</button></a>
+                <a href="/products#products__section"><button class="button__colored">Grab a Coffee</button></a>
             </div>
         </section>
     </main>
@@ -136,13 +136,13 @@
             <div class="footer__container">
                 <div class="footer__grid__box">
                     <div class="footer__logo__container">
-                        <a href="#hero__section"><img src="assets/images/Logo.webp" alt="Kumachi Logo" class="kumachi__logo"></a>
+                        <a href="#hero__section"><img src="/images/Logo.webp" alt="Kumachi Logo" class="kumachi__logo"></a>
                         <p class="footer__title">Kumachi</p>
                     </div>
                     <p class="footer__address">B21 L10 NHA Pandacaqui,<br>Mexico, San Fernando<br>Pampanga, Philippines</p>
                     <div class="footer__social__section">
-                        <a href="https://www.facebook.com/profile.php?id=61560583146776" target="_blank"><img src="assets/images/icons/facebook.webp" alt="Facebook Logo" class="footer__social__icon"></a>
-                        <a href="https://www.instagram.com/kumachi_coffee.ph/" target="_blank"><img src="assets/images/icons/instagram.webp" alt="Instagram Logo" class="footer__social__icon"></a>
+                        <a href="https://www.facebook.com/profile.php?id=61560583146776" target="_blank"><img src="/images/icons/facebook.webp" alt="Facebook Logo" class="footer__social__icon"></a>
+                        <a href="https://www.instagram.com/kumachi_coffee.ph/" target="_blank"><img src="/images/icons/instagram.webp" alt="Instagram Logo" class="footer__social__icon"></a>
                        
                     </div>
                 </div>
@@ -158,10 +158,10 @@
                     <p class="footer__title__2">Coffee</p>
                     <nav>
                         <ul>
-                            <li><a href="homepage.html">Home</a></li>
-                            <li><a href="products.html">Products</a></li>
-                            <li><a href="featured.html">Featured</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/products">Products</a></li>
+                            <li><a href="/featured">Featured</a></li>
+                            <li><a href="/contact">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -169,9 +169,9 @@
                     <p class="footer__title__2">Shop</p>
                     <nav>
                         <ul>
-                            <li><a href="products.html#products__section">Coffee</a></li>
-                            <li><a href="products.html#products__section">Cakes</a></li>
-                            <li><a href="products.html#products__section">Pastries</a></li>
+                            <li><a href="/products#products__section">Coffee</a></li>
+                            <li><a href="/products#products__section">Cakes</a></li>
+                            <li><a href="/products#products__section">Pastries</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -180,7 +180,7 @@
         </div>
     </footer>
 
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/products.js"></script>
+    <script src="/middleware.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>

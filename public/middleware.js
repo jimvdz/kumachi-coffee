@@ -1,3 +1,52 @@
+async function getProducts()
+{
+    return fetch('/api/products')
+    .then(response => {
+        return response.json();
+    })
+    .catch(error => console.log('Error fetching products.', error));
+}
+
+async function getProduct(id)
+{
+    return fetch(`/api/products/${id}`)
+    .then(response => {
+        return response.json();
+    })
+    .catch(error => console.log('Error fetching product.', error));
+}
+
+async function updateGoodRating(id) {
+    // Directly send the string instead of an object
+    fetch(`/api/products/${id}/rating`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'text/plain' // Since you are sending plain text
+        },
+        body: 'good' // Send the string directly
+    })
+    .then(response => {
+        return response;
+    })
+    .catch(error => console.log('Error updating rating:', error));
+}
+
+async function updateBadRating(id, rating)
+{
+    fetch(`/api/products/${id}/rating`, {
+        method: 'PUT', // Use PUT to update the rating
+        headers: {
+            'Content-Type': 'text/plain' // Specify that we're sending JSON
+        },
+        body: 'bad' // Convert the rating object to JSON
+    })
+    .then(response => {
+        return response;
+    })
+    .catch(error => console.log('Error updating rating:', error));
+}
+
+// ***** migrated and modified from old products js to reflect api integration
 var desktopHeader = document.getElementById("header"); 
 
 // DOM Elements
@@ -25,81 +74,14 @@ const modalProductRating = document.getElementById('modal-product-rating');
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let total = 0;
 
-const products = [
-    {
-        id: 1,
-        name: "Matcha Cookies/pc",
-        price: 40,
-        type: "pastries",
-        image: "assets/images/product1.webp",
-        description: "Indulge in the perfect balance of earthy matcha and creamy white chocolate in every bite of our matcha cookies.",
-        rating: { good: 0, bad: 0 } 
-    },
-    {
-        id: 2,
-        name: "Crookies/pc",
-        price: 80,
-        type: "pastries",
-        image: "assets/images/product2.webp",
-        description: "Savor the delightful fusion of two beloved classics of croissants and chocolate chip cookies.",
-        rating: { good: 0, bad: 0 } 
-    },
-    {
-        id: 3,
-        name: "Blueberry Cheesecake/slice",
-        price: 140,
-        type: "pastries",
-        image: "assets/images/product3.webp",
-        description: "Our creamy, rich, decadent cheesecake topped with blueberries.",
-        rating: { good: 0, bad: 0 } 
-    },
-    {
-        id: 4,
-        name: "Biscoff Cheesecake/slice",
-        price: 140,
-        type: "pastries",
-        image: "assets/images/product4.webp",
-        description: "Soft and creamy cheesecake layered with Biscoff biscuits. Perfect for any occasion.",
-        rating: { good: 0, bad: 0 } 
-    },
-    {
-        id: 5,
-        name: "Sea Salt Latte",
-        price: 75,
-        type: "drink",
-        image: "assets/images/product5.webp",
-        description: "Creamy espresso with hints of caramel and salt.",
-        rating: { good: 0, bad: 0 } 
-    },
-    {
-        id: 6,
-        name: "Peka-Mayap",
-        price: 75,
-        type: "drink",
-        image: "assets/images/product6.webp",
-        description: "Shaken espresso with white chocolate and caramel sauce. One of our best-selling drinks.",
-        rating: { good: 0, bad: 0 } 
-    },
-    {
-        id: 7,
-        name: "Matcha Latte",
-        price: 100,
-        type: "drink",
-        image: "assets/images/product7.webp",
-        description: "Grinded green tea mixed with creamy milk and vanilla.",
-        rating: { good: 0, bad: 0 }
-    },
-    {
-        id: 8,
-        name: "Kuti Berry",
-        price: 90,
-        type: "drink",
-        image: "assets/images/product8.webp",
-        description: "Refreshing drink with strawberry bits, soda, and yakult.",
-        rating: { good: 0, bad: 0 }
-    },
-    // Add more products as needed
-];
+let products = [];
+
+async function initializeProducts() {
+    products = await getProducts();
+    searchAndFilterProducts(); 
+    // Initialize product display
+    renderProducts(products);
+}
 
 // event listeners
 for (var i = 0; i < cartIcon.length; i++) {
@@ -112,9 +94,9 @@ cartClear.addEventListener('click', clearCart);
 updateCartDisplay();
 // (kapag nasa products page lang)
 if (document.title == 'Kumachi Coffee and Pastries | Products') {
+    initializeProducts();
     console.log('Nasa products page');
     searchInput = document.getElementById('search-input');
-    searchAndFilterProducts(); 
     // Event listeners for products only
     searchInput.addEventListener('input', searchAndFilterProducts);
     filterType.addEventListener('change', searchAndFilterProducts);
@@ -228,15 +210,15 @@ if (document.title == 'Kumachi Coffee and Pastries | Products') {
 
 
     // Function to rate a product
-    function rateProduct(id, rating) {
-        const product = products.find(p => p.id == id);
-
+    async function rateProduct(id, rating) {
+        const product = await getProduct(id);
         if (product) {
             if (rating === 'good') {
-                product.rating.good += 1;
+                updateGoodRating(id);
             } else if (rating === 'bad') {
-                product.rating.bad += 1;
+                updateBadRating(id);
             }
+            initializeProducts();
             renderProducts(products);
         }
     }
@@ -277,9 +259,6 @@ if (document.title == 'Kumachi Coffee and Pastries | Products') {
     function closeModal() {
         modal.style.display = 'none';
     }
-
-    // Initialize product display
-    renderProducts(products);
 };
     
 

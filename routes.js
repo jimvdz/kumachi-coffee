@@ -5,6 +5,7 @@ const products = require("./public/js/products-data");
 const messages = require("./public/js/messages-data");
 const customers = require("./public/js/customer-data");
 const app = express.Router();
+let loggedIn = false;
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const textParser = bodyParser.text();
@@ -29,14 +30,22 @@ app.get("/contact", (req, res) => {
   res.sendFile(__dirname + "/public/html/contact.html");
 });
 
+// Admin page
+app.get('/admin', (req, res) => {
+    if (loggedIn) res.sendFile(__dirname + '/public/html/admin-home.html');
+    else res.sendFile(__dirname + '/public/html/admin-login.html');
+})
+
 // Customer List page
-app.get("/admin/custlist", (req, res) => {
-  res.sendFile(__dirname + "/public/html/custlist.html");
+app.get('/admin/custlist', (req, res) => {
+    if (loggedIn) res.sendFile(__dirname + '/public/html/custlist.html');
+    else res.redirect('/admin?invalid');
 });
 
 // Customer Messages page
-app.get("/admin/custmsg", (req, res) => {
-  res.sendFile(__dirname + "/public/html/custmsg.html");
+app.get('/admin/custmsg', (req, res) => {
+    if (loggedIn) res.sendFile(__dirname + '/public/html/custmsg.html');
+    else res.redirect('/admin?invalid');
 });
 
 // ******* PRODUCTS API
@@ -86,36 +95,48 @@ app.get("/api/contact/msg/:id", (req, res) => {
 });
 
 // Adds a new customer message and redirects to social media marketing or email marketing page
-app.post("/api/contact/msg/new", urlencodedParser, function (req, res) {
-  // Prepare output in JSON format
-  let newMessage = {
-    id: messages.length + 1,
-    name: req.body.name,
-    email: req.body.email,
-    num: req.body.num,
-    subject: req.body.subject,
-    message: req.body.message,
-    preferred: req.body.preferred,
-  };
+app.post('/api/contact/msg/new', urlencodedParser, function (req, res) {
+    // Prepare output in JSON format
+    let newMessage = {
+        id: messages.length + 1,
+        name: req.body.name,
+        email: req.body.email,
+        num: req.body.num,
+        subject: req.body.subject,
+        message: req.body.message,
+        preferred: req.body.preferred
+    };
 
-  let newCustomer = {
-    id: customers.length + 1,
-    name: req.body.name,
-    email: req.body.email,
-    num: req.body.num,
-    preferred: req.body.preferred,
-  };
+    let newCustomer = {
+        id: customers.length + 1,
+        name: req.body.name,
+        email: req.body.email,
+        num: req.body.num,
+        preferred: req.body.preferred
+    };
 
-  // Eto default na pupuntahan since di pa kinukuha from user
-  if (newMessage.preferred == "Social Media Marketing") {
-    res.sendFile(__dirname + "/public/html/smm.html");
-    messages.push(newMessage);
-  } else if (newMessage.preferred == "Email Marketing") {
-    res.sendFile(__dirname + "/public/html/em.html");
-    messages.push(newMessage);
-  }
+    if (newMessage.preferred == 'Social Media Marketing') {
+        messages.push(newMessage);
+        res.redirect('/contact/smm');
+    }
 
-  customers.push(newCustomer);
+    else if (newMessage.preferred == 'Email Marketing') {
+        messages.push(newMessage);
+        res.redirect('/contact/em');
+
+    }
+
+    customers.push(newCustomer);
+});
+
+// redirect to smm
+app.get('/contact/smm', (req, res) => {
+    res.sendFile(__dirname + '/public/html/smm.html');
+});
+
+// redirect to em
+app.get('/contact/em', (req, res) => {
+    res.sendFile(__dirname + '/public/html/em.html');
 });
 
 // **** CUSTOMERS API
@@ -151,5 +172,33 @@ app.get("/customer-message", (req, res) => {
 });
 
 // Adding a new customer will happen na doon sa contact, so no need api for post here.
+
+// ****** ADMIN API
+const adminUN = 'hanni'
+const adminPW = 'abc123'
+
+function changeLoginStatus(status) {
+    loggedIn = status;
+}
+
+// For username and password checking for login
+app.post('/api/admin/login', urlencodedParser, (req, res) => {
+    let un = req.body.username;
+    let pw = req.body.password;
+    if (un == adminUN && pw == adminPW) {
+        changeLoginStatus(true);
+        res.redirect('/admin');
+    }
+    else {
+        changeLoginStatus(false);
+        res.redirect('/admin?incorrect');
+    }
+})
+
+// For logout
+app.post('/api/admin/logout', urlencodedParser, (req, res) => {
+    changeLoginStatus(false);
+    res.redirect('/admin');
+})
 
 module.exports = app;

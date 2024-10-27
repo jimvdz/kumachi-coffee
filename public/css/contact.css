@@ -2,7 +2,7 @@
     margin: 0 auto;
     width: 100%;
     height: 60vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/contact-background.webp') no-repeat center;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/contact-background.webp') no-repeat center;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -27,7 +27,8 @@
 
 /* Contact Intro */
 
-.contact__intro, .contact__section {
+.contact__intro,
+.contact__section {
     margin: 0 auto;
     width: 80%;
 }
@@ -41,7 +42,7 @@
 .contact__section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 3rem; 
+    column-gap: 3rem;
     margin: 2rem auto;
 }
 
@@ -92,7 +93,8 @@
     line-height: 3rem;
 }
 
-.contact__right p, .contact__input__label {
+.contact__right p,
+.contact__input__label {
     color: var(--primary-color);
     margin-bottom: 10px;
 }
@@ -112,6 +114,10 @@
     font-size: var(--font-size-normal);
     padding: 1rem;
     margin-bottom: 1rem;
+}
+
+.contact__input:user-invalid {
+    background-color: #ffdddd;
 }
 
 textarea {
@@ -149,13 +155,14 @@ textarea {
 
 /* Responsive */
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 700px) {
     .contact__section {
         display: flex;
         flex-direction: column;
-        gap: 3rem; 
+        gap: 3rem;
         margin: 2rem auto;
     }
+
     .contact__buttons {
         display: flex;
         justify-content: center;

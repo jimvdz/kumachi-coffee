@@ -1,5 +1,5 @@
 # Kumachi Coffee and Pastries Website
-This is a dynamic website we created for a selected local business using HTML, CSS, and JavaScript as a group midterm project requirement for the WEBPUB course. Its main goal is to enhance the company's marketing strategy by providing a platform for visitors to be informed and have interaction with what the business offers. The website consists of four (4) pages, namely the Landing page, Products page, Feature page, and Contact page. Key features include an add-to-cart system, responsive design, gallery view, rating system, search feature, and filtering options.
+This is a dynamic website we created for a selected local business using HTML, CSS, and JavaScript as a group final project requirement for the WEBPUB course. Its main goal is to enhance the company's marketing strategy by providing a platform for visitors to be informed and have interaction with what the business offers. The website consists of five (5) pages, namely the Landing page, Products page, Feature page, Contact page, and Admin page. Key features include responsive web design, an add-to-cart system, gallery view, rating system, search feature, filtering options, form submission, email/social media marketing mockups, and admin-exclusive pages via login.
 
 ## Website Structure
 The website consists of four main pages:
@@ -18,6 +18,10 @@ The website consists of four main pages:
 - **Gallery view** for a visual showcase of products.
 - **Rating system** to enable customers to provide feedback on products, helping improve offerings through user insights.
 - **Search** and **filtering options** to help users find specific items quickly.
+- **Form submission** which allows users to send meaningful messages and feedback.
+- **Email/social media marketing mockups** for possible promotions and brand development.
+- **Admin-exclusive pages** to allow admins to learn more about their customers and strategize the business’s growth.
+
 
 ## About the Business
 The website is designed for **Kumachi**, a coffee and pastry shop located in Pandacaqui, Mexico, Pampanga. The shop offers a cozy, inviting, and comfortable atmosphere inspired by Japanese culture. It operates from 12 nn to 12 am every day except Wednesday. Kumachi initially ran online for 6 months and has now transitioned to a physical store, which has been open for the past two months.

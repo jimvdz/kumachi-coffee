@@ -11,6 +11,8 @@ The website consists of four main pages:
     - Highlights specific features of Kumachi, such as unique menu items or promotions, with detailed explanations and visual elements.
 4. Contact Page
     - Provides contact information and a form for inquiries, making it easy for customers to reach out.
+5. Admin Page
+    - Displays customer information and messages submitted through the contact page form (requires admin login).
 
 ## Key Features
 - **Responsive web design** for a seamless experience across all devices, whether mobile, tablet, or desktop.

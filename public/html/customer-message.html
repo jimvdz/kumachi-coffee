@@ -1,0 +1,50 @@
+<!-- public/html/customer-message.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Message</title>
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="../css/customer-message.css" />
+  </head>
+  <body>
+    <h1 class="mt-2">Customer Message</h1>
+    <div id="message-content" class="message-container">
+      <p><strong>Name:</strong> <span id="customer-name"></span></p>
+      <p><strong>Email:</strong> <span id="customer-email"></span></p>
+      <p><strong>Number:</strong> <span id="customer-number"></span></p>
+      <p><strong>Subject:</strong> <span id="message-subject"></span></p>
+      <p><strong>Message</strong></p>
+      <p id="message-body" class="message-body"></p>
+    </div>
+
+    <script>
+      // Get customer ID from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const customerId = urlParams.get("id");
+
+      if (customerId) {
+        // Fetch the customer's message from the API
+        fetch(`/api/customers/${customerId}/message`)
+          .then((response) => response.json())
+          .then((message) => {
+            // Populate the page with message data
+            document.getElementById("customer-name").textContent = message.name;
+            document.getElementById("customer-email").textContent =
+              message.email;
+            document.getElementById("customer-number").textContent =
+              message.num;
+            document.getElementById("message-subject").textContent =
+              message.subject;
+            document.getElementById("message-body").textContent =
+              message.message;
+          })
+          .catch((error) => console.error("Error fetching message:", error));
+      } else {
+        document.getElementById("message-content").innerHTML =
+          "<p>Error: Customer ID is missing.</p>";
+      }
+    </script>
+  </body>
+</html>

@@ -19,6 +19,7 @@
                 <li><a href="/products">Products</a></li>
                 <li><a href="/featured">Featured</a></li>
                 <li><a href="/contact">Contact</a></li>
+                <li><a href="/admin">Admin</a></li>
             </ul>
         </nav>
         <div class="header__right">
@@ -46,6 +47,7 @@
                 <li><a href="/products">Products</a></li>
                 <li><a href="/featured">Featured</a></li>
                 <li><a href="/contact">Contact</a></li>
+                <li><a href="/admin">Admin</a></li>
             </ul>
         </nav>
     </header>
@@ -108,15 +110,15 @@
                         <h4 class="contact__right__heading">Send a Message</h4>
                         <p>Have questions or feedback? We're here to help you enjoy every moment with us.</p>
                         <form method="post" action="/api/contact/msg/new" class="medium-size">
-                            <label for="name" class="contact__input__label line__height">Name:</label><input type="text" name="name" id="name" class="contact__input">
+                            <label for="name" class="contact__input__label line__height">Name:</label><input type="text" name="name" id="name" class="contact__input" required>
 
-                            <label for="email" class="contact__input__label line__height">Email Address:</label><input type="email" name="email" id="email" class="contact__input">
+                            <label for="email" class="contact__input__label line__height">Email Address:</label><input type="email" name="email" id="email" class="contact__input" required>
 
-                            <label for="num" class="contact__input__label line__height">Mobile Number:</label><input type="number" name="num" id="num" class="contact__input">
+                            <label for="num" class="contact__input__label line__height">Mobile Number:</label><input type="number" name="num" id="num" class="contact__input" required>
 
-                            <label for="subject" class="contact__input__label line__height">Subject:</label><input type="text" name="subject" id="subject" class="contact__input">
+                            <label for="subject" class="contact__input__label line__height">Subject:</label><input type="text" name="subject" id="subject" class="contact__input" required>
 
-                            <label for="message" class="contact__input__label line__height">Message:</label><textarea name="message" id="message" class="contact__input"></textarea>
+                            <label for="message" class="contact__input__label line__height">Message:</label><textarea name="message" id="message" class="contact__input" required></textarea>
 
                             <label for="preferred" class="contact__input__label line__height">Preferred Promotional Marketing:</label>
                             <select name="preferred" id="preferred" class="contact__input">
@@ -175,6 +177,7 @@
                             <li><a href="/products">Products</a></li>
                             <li><a href="/featured">Featured</a></li>
                             <li><a href="/contact">Contact</a></li>
+                <li><a href="/admin">Admin</a></li>
                         </ul>
                     </nav>
                 </div>

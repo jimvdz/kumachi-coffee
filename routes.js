@@ -117,16 +117,27 @@ app.post('/api/contact/msg/new', urlencodedParser, function (req, res) {
 
     // Eto default na pupuntahan since di pa kinukuha from user
     if (newMessage.preferred == 'Social Media Marketing') {
-        res.sendFile(__dirname + '/public/html/smm.html');
         messages.push(newMessage);
+        res.redirect('/contact/smm');
     }
 
     else if (newMessage.preferred == 'Email Marketing') {
-        res.sendFile(__dirname + '/public/html/em.html');
         messages.push(newMessage);
+        res.redirect('/contact/em');
+
     }
 
     customers.push(newCustomer);
+});
+
+// redirect to smm
+app.get('/contact/smm', (req, res) => {
+    res.sendFile(__dirname + '/public/html/smm.html');
+});
+
+// redirect to em
+app.get('/contact/em', (req, res) => {
+    res.sendFile(__dirname + '/public/html/em.html');
 });
 
 // **** CUSTOMERS API

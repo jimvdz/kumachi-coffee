@@ -115,7 +115,6 @@ app.post('/api/contact/msg/new', urlencodedParser, function (req, res) {
         preferred: req.body.preferred
     };
 
-    // Eto default na pupuntahan since di pa kinukuha from user
     if (newMessage.preferred == 'Social Media Marketing') {
         messages.push(newMessage);
         res.redirect('/contact/smm');
@@ -152,6 +151,14 @@ app.get('/api/customers/:id', (req, res) => {
     if (!customer) return res.status(404).send('Customer not found.');
     else res.send(customer);
 })
+
+// Get message by customer ID
+app.get("/api/customers/:id/message", (req, res) => {
+    const customerId = parseInt(req.params.id);
+    const message = messages.find((msg) => msg.id === customerId);
+    if (!message) return res.status(404).send("Message not found.");
+    res.json(message);
+});
 
 // Adding a new customer will happen na doon sa contact, so no need api for post here.
 

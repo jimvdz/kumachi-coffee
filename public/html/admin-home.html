@@ -1,7 +1,41 @@
-<p>Admin home</p>
-<a href="/admin/custlist"><button>Customer List</button></a>
-<a href="/admin/custmsg"><button>Customer Messages</button>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Pagge</title>
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="../css/customer-list.css" />
+    <style>
+      .admin-buttons {
+        display: flex;
+        gap: 1rem;
+      }
 
-<form action="/api/admin/logout" method="post">
-    <button type="submit">Log out</button>
-</form>
+      .admin-img {
+        margin-top: 1rem;
+        width: 50vw;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="mt-2">Admin Homepage</h1>
+    <div class="admin-buttons">
+      <a href="/admin/custlist"
+        ><button class="button__colored">Customer List</button></a
+      >
+      <a href="/admin/custmsg"
+        ><button class="button__colored">Customer Messages</button></a
+      >
+      <form action="/api/admin/logout" method="post">
+        <button type="submit" class="button__colored">Log out</button>
+      </form>
+    </div>
+    <img
+      src="../images/feature-background.webp"
+      alt="admin page"
+      class="admin-img"
+    />
+  </body>
+</html>

@@ -1,0 +1,15 @@
+.message-container {
+  width: 60%;
+  margin: 0 auto;
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message-body {
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  color: var(--primary-color);
+  border-radius: 10px;
+}

@@ -1,7 +1,97 @@
-<p>Customer List</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customers List</title>
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="../css/customer-list.css" />
+  </head>
+  <body>
+    <h1 class="mt-2">Customer List</h1>
+    <p class="text__center">Compilation list of all our customers</p>
 
-<a href="/admin"><button>Back to Admin Home</button></a>
+    <!-- Search input -->
+    <div class="search-container">
+      <input
+        type="text"
+        id="search-input"
+        class="search-input"
+        placeholder="Search by ID or Name"
+        oninput="filterCustomers()"
+      />
+    </div>
 
-<form action="/api/admin/logout" method="post">
-    <button type="submit">Log out</button>
-</form>
+    <!-- Customer table -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Number</th>
+          <th>Preferred</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="customer-table-body">
+        <!-- Data fetched display here -->
+      </tbody>
+    </table>
+
+    <div class="actions-admin">
+      <a href="/admin" class="mtb-2"
+        ><button class="button__colored">Back to Admin Home</button></a
+      >
+
+      <form action="/api/admin/logout" method="post">
+        <button type="submit" class="button__colored">Log out</button>
+      </form>
+    </div>
+
+    <script>
+      let customersData = [];
+
+      // Fetch data and display
+      fetch("/api/customers")
+        .then((response) => response.json())
+        .then((customers) => {
+          customersData = customers;
+          displayCustomers(customersData);
+        })
+        .catch((error) => console.error("Error fetching customers:", error));
+
+      // Function display customers in the table
+      function displayCustomers(customers) {
+        const tableBody = document.getElementById("customer-table-body");
+        tableBody.innerHTML = ""; // Clear existing rows
+        customers.forEach((customer) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+          <td>${customer.id}</td>
+          <td>${customer.name}</td>
+          <td>${customer.email}</td>
+          <td>${customer.num}</td>
+          <td>${customer.preferred}</td>
+          <td><a class="action-link" href="/admin/custmsg?id=${customer.id}"><button class="button__colored">View Message</button></a></td>
+        `;
+
+          tableBody.appendChild(row);
+        });
+      }
+
+      // Filter search
+      function filterCustomers() {
+        const searchValue = document
+          .getElementById("search-input")
+          .value.toLowerCase();
+        const filteredCustomers = customersData.filter(
+          (customer) =>
+            customer.name.toLowerCase().includes(searchValue) ||
+            customer.id.toString().includes(searchValue)
+        );
+        displayCustomers(filteredCustomers);
+      }
+    </script>
+  </body>
+</html>

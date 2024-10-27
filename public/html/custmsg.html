@@ -1,7 +1,89 @@
-<p>Customer Messages</p>
+<!-- public/html/custmsg.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Message</title>
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="../css/customer-message.css" />
+  </head>
+  <body>
+    <h1 class="mt-2">Customer Message</h1>
+    <div id="message-content" class="message-container">
+      <p><strong>Name:</strong> <span id="customer-name"></span></p>
+      <p><strong>Email:</strong> <span id="customer-email"></span></p>
+      <p><strong>Number:</strong> <span id="customer-number"></span></p>
+      <p><strong>Subject:</strong> <span id="message-subject"></span></p>
+      <p><strong>Message</strong></p>
+      <p id="message-body" class="message-body"></p>
+      <a href="/admin/custlist"
+        ><button class="button__colored">Back</button></a
+      >
+    </div>
 
-<a href="/admin"><button>Back to Admin Home</button></a>
+    <script>
+      // Get customer ID from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      let customerId = urlParams.get("id");
 
-<form action="/api/admin/logout" method="post">
-    <button type="submit">Log out</button>
-</form>
+      // Function to fetch the first available customer ID if none is provided
+      function fetchFirstCustomerId() {
+        return fetch("/api/customers")
+          .then((response) => response.json())
+          .then((customers) => (customers.length > 0 ? customers[0].id : null))
+          .catch((error) => {
+            console.error("Error fetching customers:", error);
+            return null;
+          });
+      }
+
+      // Function to fetch and display customer message
+      function fetchAndDisplayMessage(id) {
+        fetch(`/api/customers/${id}/message`)
+          .then((response) => response.json())
+          .then((message) => {
+            if (message) {
+              document.getElementById("customer-name").textContent =
+                message.name || "";
+              document.getElementById("customer-email").textContent =
+                message.email || "";
+              document.getElementById("customer-number").textContent =
+                message.num || "";
+              document.getElementById("message-subject").textContent =
+                message.subject || "";
+              document.getElementById("message-body").textContent =
+                message.message || "";
+            } else {
+              // Display blanks if no message exists for the customer
+              document.getElementById("customer-name").textContent = "";
+              document.getElementById("customer-email").textContent = "";
+              document.getElementById("customer-number").textContent = "";
+              document.getElementById("message-subject").textContent = "";
+              document.getElementById("message-body").textContent = "";
+            }
+          })
+          .catch((error) => console.error("Error fetching message:", error));
+      }
+
+      // If customerId is missing, default to the first customer
+      if (!customerId) {
+        fetchFirstCustomerId().then((firstCustomerId) => {
+          if (firstCustomerId) {
+            fetchAndDisplayMessage(firstCustomerId);
+          } else {
+            // Display blanks if no customers are available
+            document.getElementById("customer-name").textContent = "";
+            document.getElementById("customer-email").textContent = "";
+            document.getElementById("customer-number").textContent = "";
+            document.getElementById("message-subject").textContent = "";
+            document.getElementById("message-body").textContent = "";
+          }
+        });
+      } else {
+        // If customerId exists, fetch and display the message for that customer
+        fetchAndDisplayMessage(customerId);
+      }
+    </script>
+  </body>
+</html>

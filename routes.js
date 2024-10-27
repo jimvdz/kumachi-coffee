@@ -5,6 +5,7 @@ const products = require('./public/js/products-data');
 const messages = require('./public/js/messages-data');
 const customers = require('./public/js/customer-data');
 const app = express.Router();
+let loggedIn = false;
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const textParser = bodyParser.text();
@@ -29,14 +30,22 @@ app.get('/contact', (req, res) => {
     res.sendFile(__dirname + '/public/html/contact.html');
 });
 
+// Admin page
+app.get('/admin', (req, res) => {
+    if (loggedIn) res.sendFile(__dirname + '/public/html/admin-home.html');
+    else res.sendFile(__dirname + '/public/html/admin-login.html');
+})
+
 // Customer List page
 app.get('/admin/custlist', (req, res) => {
-    res.sendFile(__dirname + '/public/html/custlist.html');
+    if (loggedIn) res.sendFile(__dirname + '/public/html/custlist.html');
+    else res.redirect('/admin?invalid');
 });
 
 // Customer Messages page
 app.get('/admin/custmsg', (req, res) => {
-    res.sendFile(__dirname + '/public/html/custmsg.html');
+    if (loggedIn) res.sendFile(__dirname + '/public/html/custmsg.html');
+    else res.redirect('/admin?invalid');
 });
 
 // ******* PRODUCTS API
@@ -134,5 +143,33 @@ app.get('/api/customers/:id', (req, res) => {
 })
 
 // Adding a new customer will happen na doon sa contact, so no need api for post here.
+
+// ****** ADMIN API
+const adminUN = 'hanni'
+const adminPW = 'abc123'
+
+function changeLoginStatus(status) {
+    loggedIn = status;
+}
+
+// For username and password checking for login
+app.post('/api/admin/login', urlencodedParser, (req, res) => {
+    let un = req.body.username;
+    let pw = req.body.password;
+    if (un == adminUN && pw == adminPW) {
+        changeLoginStatus(true);
+        res.redirect('/admin');
+    }
+    else {
+        changeLoginStatus(false);
+        res.redirect('/admin?incorrect');
+    }
+})
+
+// For logout
+app.post('/api/admin/logout', urlencodedParser, (req, res) => {
+    changeLoginStatus(false);
+    res.redirect('/admin');
+})
 
 module.exports = app;

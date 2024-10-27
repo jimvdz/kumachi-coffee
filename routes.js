@@ -104,7 +104,7 @@ app.post('/api/contact/msg/new', urlencodedParser, function (req, res) {
         num: req.body.num,
         subject: req.body.subject,
         message: req.body.message,
-        preferred: 'Social Media Marketing' // change to req.body.preferred pag nagawa na sa contact.html
+        preferred: req.body.preferred
     };
 
     let newCustomer = {
@@ -112,7 +112,7 @@ app.post('/api/contact/msg/new', urlencodedParser, function (req, res) {
         name: req.body.name,
         email: req.body.email,
         num: req.body.num,
-        preferred: 'Social Media Marketing' // change to req.body.preferred pag nagawa na sa contact.html
+        preferred: req.body.preferred
     };
 
     // Eto default na pupuntahan since di pa kinukuha from user

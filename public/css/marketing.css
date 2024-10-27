@@ -1,0 +1,13 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+img {
+    border: 5px solid var(--secondary-color);
+    border-radius: 20px;
+    max-width: 95vw;
+}

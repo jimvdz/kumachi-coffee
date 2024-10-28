@@ -1,5 +1,5 @@
 # Kumachi Coffee and Pastries Website
-This is a dynamic website we created for a selected local business using HTML, CSS, and JavaScript as a group final project requirement for the WEBPUB course. Its main goal is to enhance the company's marketing strategy by providing a platform for visitors to be informed and have interaction with what the business offers. The website consists of five (5) pages, namely the Landing page, Products page, Feature page, Contact page, and Admin page. Key features include responsive web design, an add-to-cart system, gallery view, rating system, search feature, filtering options, form submission, email/social media marketing mockups, and admin-exclusive pages via login.
+This is a dynamic website we created for a selected local business using HTML, CSS, and JavaScript as a group final project requirement for the WEBPUB course. Its main goal is to enhance the company's marketing strategy by providing a platform for visitors to be informed and have interaction with what the business offers. The website consists of five (5) pages, namely the [Landing](#b-homepage) page, [Products](#c-products-page) page, [Feature](#d-featured-page) page, [Contact](#e-contact-page) page, and [Admin](#f-admin-page) page. Key features include responsive web design, an add-to-cart system, gallery view, rating system, search feature, filtering options, form submission, email/social media marketing mockups, and admin-exclusive pages via login.
 
 ## Starting the Web Application
 1. After downloading the files, go to the folder where those files are stored and open VSCode.
@@ -173,7 +173,7 @@ Email marketing mockup:
 ### F. Admin Page
 Once a user has filled out and submitted the form in the contact page, his/her message and user information will be accessible via the admin page. However, you will first be greeted with a login screen, which would require a username and password before you can proceed.
 
-Username: **hanni**
+Username: **hanni**  
 Password: **abc123**
 
 The login screen:
@@ -220,11 +220,13 @@ Example of a customer's message:
 ## About the Business
 The website is designed for **Kumachi**, a coffee and pastry shop located in Pandacaqui, Mexico, Pampanga. The shop offers a cozy, inviting, and comfortable atmosphere inspired by Japanese culture. It operates from 12 nn to 12 am every day except Wednesday. Kumachi initially ran online for 6 months and has now transitioned to a physical store, which has been open for the past two months.
 
-## Team
-- [Cayanan](https://github.com/lmcay)
-- [David](https://github.com/K8Dvd)
-- [Natividad](https://github.com/itsjayceee)
-- [Tayag](https://github.com/CJT22)
-- [Valdez](https://github.com/jimvdz)
+## Development Team
+| Name | Role |
+| --- | --- |
+| [Cayanan](https://github.com/lmcay) | Front-End Developer, UI/UX Designer |
+| [David](https://github.com/K8Dvd) | Content Strategist, Researcher |
+| [Natividad](https://github.com/itsjayceee) | Web Content Manager, Researcher |
+| [Tayag](https://github.com/CJT22) | Associate Front-End Dev, QA Tester |
+| [Valdez](https://github.com/jimvdz) | Front-End Developer, REST API Developer |
 
 Copyright &copy; 2024 by Kumachi Coffee and Pastries, Cayanan, David, Natividad, Tayag, and Valdez. All rights reserved.

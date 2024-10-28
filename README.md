@@ -70,9 +70,15 @@ The products page allows users to browse Kumachi’s fine selection of drinks an
 
 On the uppermost part of the screenshot above are the search and filtering options. Users can look for a specific product in mind using Kumachi’s built-in search bar. Additionally, users can also filter which type of product they would like to see. By default all products are shown, but users can opt to just check out only Kumachi’s drinks, or only their pastries.
 
+Using the search bar:
+
 ![Screenshot of Using the Search Bar](public/images/screenshots/11.png)
 
+Filtering products to only show drinks:
+
 ![Screenshot of Filtering Drinks](public/images/screenshots/12.png)
+
+Filtering products to only show pastries:
 
 ![Screenshot of Filtering Pastries](public/images/screenshots/13.png)
 
@@ -94,7 +100,11 @@ Users can add or subtract each item’s quantity in their cart with the plus (+)
 
 Lastly, once users have tried out a certain product, they have the ability to rate it using the “GOOD” or “BAD” buttons at the very bottom of the selected product. This will update the product’s rating on top of the “ADD TO CART” button and inside the product’s modal.
 
+Updated product ratings:
+
 ![Screenshot of Product Ratings](public/images/screenshots/18.png)
+
+Updated product ratings inside the product modal:
 
 ![Screenshot of Product Ratings inside the Product Modal](public/images/screenshots/19.png)
 
@@ -109,24 +119,31 @@ The videos in this webpage automatically play and loop. Users can pause, mute/un
 ![Screenshot of the Available Video Controls](public/images/screenshots/21.png)
 
 Kumachi’s matcha drink video:
+
 ![Screenshot of the Available Video Controls](public/images/screenshots/22.png)
 
 Kumachi’s “WHO WE ARE” section with a gallery of its products:
+
 ![Screenshot of Kumachi’s “WHO WE ARE” section with a gallery of its products](public/images/screenshots/23.png)
 
 Kumachi’s “Did you know?” section (facts and trivia):
+
 ![Screenshot of Kumachi’s “Did you know?” section](public/images/screenshots/24.png)
 
 Kumachi’s “Cold and Hot Brew” and “Cakes and Pastries” sections (about their drinks and pastries):
+
 ![Screenshot of Kumachi’s “Cold and Hot Brew” and “Cakes and Pastries” sections](public/images/screenshots/25.png)
 
 Created infographic for the featured page:
+
 ![Screenshot of the Created infographic for the featured page](public/images/screenshots/26.png)
 
 Kumachi’s matcha cookies video:
+
 ![Screenshot of Kumachi’s matcha cookies video](public/images/screenshots/27.png)
 
 Kumachi’s “WHAT SETS US DIFFERENT?” section (what makes the business unique from its competition):
+
 ![Screenshot of Kumachi’s “WHAT SETS US DIFFERENT?” section](public/images/screenshots/28.png)
 
 ### E. Contact Page

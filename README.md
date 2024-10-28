@@ -3,7 +3,9 @@ This is a dynamic website we created for a selected local business using HTML, C
 
 ## Starting the Web Application
 1. After downloading the files, go to the folder where those files are stored and open VSCode.
+
    ![Screenshot of Kumachi Folder in VSCode](public/images/screenshots/01.png)
+   
 2. Initially, the node_modules folder is not included. Ensure that all dependencies are installed by opening the terminal in VSCode and run the following command:
    ```
    npm install
@@ -24,16 +26,19 @@ This is a dynamic website we created for a selected local business using HTML, C
 On every page of Kumachi’s website, except for the Admin page, the following features are present:
 
 1. The Nav Bar
+
 ![Screenshot of Kumachi's Nav Bar](public/images/screenshots/02.png)
 
 Users have the ability to move from one page to another with ease by using this nav bar which is present at the top of the screen. The five (5) pages users can go to are: The Homepage, The Products Page, The Featured Page, The Contact Page, and The Admin Page. Additionally, users can also click on Kumachi’s logo on the left side of the nav bar if they want an alternative mode of going back to the homepage. On the right side of the nav bar, there is a “GET A COFFEE” button, which transports users to the Products page, immediately starting the webpage where the products are located. Next to that button is the user’s cart, which can be used to check, edit, delete, and finalize everything the user has selected and wants to buy from the Products page (learn more about this feature in the Products Page segment of this README).
 
 2. The Call to Action Button
+
 ![Screenshot of Kumachi's Call to Action Button](public/images/screenshots/03.png)
 
 This call to action button prompts users to order from Kumachi’s fine selection of drinks and pastries by redirecting them to the Products page, where all of the products are located. Of course, the goal of the business is to increase customer orders, which is why this button is prevalent in every webpage.
 
 3. The Footer
+
 ![Screenshot of Kumachi's Footer](public/images/screenshots/04.png)
 
 At the end of each webpage, after the call to action button is the website’s footer. Important details about the business, such as its location, opening hours, and social media handles are found here. Additionally, players can also use this footer as a means to navigate to other pages, without needing the nav bar. In the “Coffee” column are the pages available, and the “Shop” column allows users to once again go to the Products page when they are now in the mood to place an order.
@@ -56,6 +61,7 @@ Finally, users are greeted with a carousel gallery that automatically slides to 
 ![Screenshot of the Carousel Gallery](public/images/screenshots/08.png)
 
 ### C. Products Page
+
 ![Screenshot of the Products Page's Hero Image](public/images/screenshots/09.png)
 
 The products page allows users to browse Kumachi’s fine selection of drinks and pastries.
@@ -93,6 +99,7 @@ Lastly, once users have tried out a certain product, they have the ability to ra
 ![Screenshot of Product Ratings inside the Product Modal](public/images/screenshots/19.png)
 
 ### D. Featured Page
+
 ![Screenshot of the Featured Page's Hero Image](public/images/screenshots/20.png)
 
 The featured page showcases various videos, images, and additional information regarding Kumachi. This page is a great way for users to familiarize themselves about the business’s overall theme and purpose.
@@ -123,6 +130,7 @@ Kumachi’s “WHAT SETS US DIFFERENT?” section (what makes the business uniqu
 ![Screenshot of Kumachi’s “WHAT SETS US DIFFERENT?” section](public/images/screenshots/28.png)
 
 ### E. Contact Page
+
 ![Screenshot of the Contact Page's Hero Image](public/images/screenshots/29.png)
 
 In the contact page, users can get in touch with the people working on Kumachi by checking out their location with the map provided, reaching out through phone or social media, and by filling out the “Send a Message” form.
@@ -132,14 +140,17 @@ In the contact page, users can get in touch with the people working on Kumachi b
 If users opt to fill out the form, they are required to answer every field. Failing to do so will not submit the form. After submitting the form, users are redirected to a page depending on their preferred promotional marketing method. If the user chooses email, he/she will see a mockup of promotional email marketing if Kumachi actually starts sending emails to users who are subscribed to their newsletter. On the other hand, if the user chooses social media, he/she will see three (3) mockups of promotional social media marketing if Kumachi decides to promote their brand using Facebook, Instagram, and YouTube as their social media platforms.
 
 Example submitted forms:
+
 ![Screenshot of submitted form example 1](public/images/screenshots/31.png)
 
 ![Screenshot of submitted form example 2](public/images/screenshots/32.png)
 
 Social media marketing mockups:
+
 ![Screenshot of Social media marketing mockups](public/images/screenshots/33.png)
 
 Email marketing mockup:
+
 ![Screenshot of email marketing mockups](public/images/screenshots/34.png)
 
 ### F. Admin Page
@@ -149,27 +160,33 @@ Username: **hanni**
 Password: **abc123**
 
 The login screen:
+
 ![Screenshot of the admin login screen](public/images/screenshots/35.png)
 
 The admin homepage:
+
 ![Screenshot of the admin login screen](public/images/screenshots/36.png)
 
 Clicking on the “CUSTOMER LIST” button will display all user information of the customers who have submitted the form in the contact page.
 
 Example customer list:
+
 ![Screenshot of Example customer list](public/images/screenshots/37.png)
 
 Additionally, the admin can search for a specific customer using an ID number or the customer’s name.
 
 Searching for a customer using an ID number:
+
 ![Screenshot of ID number search](public/images/screenshots/38.png)
 
 Searching for a customer using the customer’s name:
+
 ![Screenshot of customer name search](public/images/screenshots/39.png)
 
 On the rightmost side of the customer’s information, the admin can click on the “VIEW MESSAGE” button to see the customer’s message that he/she submitted through the form. Alternatively, back at the admin homepage, the admin may also choose to click on the “CUSTOMER MESSAGES” button, to also display a customer’s message.
 
 Example of a customer's message:
+
 ![Screenshot of customer message example](public/images/screenshots/40.png)
 
 ## Key Features
